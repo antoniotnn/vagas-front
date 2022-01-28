@@ -1,15 +1,19 @@
 <template>
-  
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <Topo />
+    <Conteudo></Conteudo>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Conteudo from './components/layouts/Conteudo.vue'
+import Topo from './components/layouts/Topo.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Conteudo,
+    Topo
   }
 }
 </script>
