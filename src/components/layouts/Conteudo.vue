@@ -4,7 +4,11 @@
   </div>
 </template>
 
-<script></script>
+<script>
+  export default {
+    name: 'Conteudo'
+  }
+</script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style></style>
