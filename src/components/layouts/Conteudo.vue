@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Conteúdo</p>
+    <h1>Componente Conteúdo</h1>
     <home></home>
     <publicar-vaga></publicar-vaga>
   </div>
@@ -19,4 +19,8 @@ import PublicarVaga from '../views/PublicarVaga.vue'
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style></style>
+<style scoped>
+  h1 {
+    color: green;
+  }
+</style>
