@@ -15,21 +15,25 @@ import PublicarVaga from '@/components/views/PublicarVaga.vue'
       Home,
       PublicarVaga
     },
+    data: () => ({
+      teste: 'O componente foi criado'
+    }),
     methods: {
 
     },
     beforeCreate() {
-      console.log('Antes de criar');
+      console.log('Antes de criar', this.teste);
     },
     created() {
-      console.log('Criado');
+      console.log('Criado', this.teste);
     },
     beforeMount() {
-      console.log('Antes de montar')
+      console.log('Antes de montar o template')
     },
     mounted() {
       console.log('Montado')
     },
+      /*
     beforeUpdate() {
       console.log('Antes de atualizar')
     },
@@ -57,6 +61,7 @@ import PublicarVaga from '@/components/views/PublicarVaga.vue'
     deActivated() {
       console.log('Componente desativado')
     }
+    */
   }
 </script>
 
