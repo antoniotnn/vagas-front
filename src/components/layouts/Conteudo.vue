@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>Componente Conteúdo</h1>
+    <h1>{{ titulo }}</h1>
+    <button @click="atualizarComponente()">Atualizar</button>
     <home></home>
     <publicar-vaga></publicar-vaga>
   </div>
@@ -16,10 +17,13 @@ import PublicarVaga from '@/components/views/PublicarVaga.vue'
       PublicarVaga
     },
     data: () => ({
-      teste: 'O componente foi criado'
+      teste: 'O componente foi criado',
+      titulo: 'Componente Conteúdo'
     }),
     methods: {
-
+      atualizarComponente() {
+        this.titulo += '*';
+      }
     },
     beforeCreate() {
       console.log('Antes de criar', this.teste);
@@ -33,7 +37,6 @@ import PublicarVaga from '@/components/views/PublicarVaga.vue'
     mounted() {
       console.log('Montado')
     },
-      /*
     beforeUpdate() {
       console.log('Antes de atualizar')
     },
@@ -46,6 +49,7 @@ import PublicarVaga from '@/components/views/PublicarVaga.vue'
     unmounted() {
       console.log('Desmontado/destruído')
     },
+      /*
     errorCaptured() {
       console.log('Erro capturado')
     },
