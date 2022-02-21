@@ -6,7 +6,22 @@
 
 <script>
   export default {
-    name: 'Home'
+    name: 'Home',
+    activated() {
+      console.log('Componente ativado')
+    },
+    deActivated() {
+      console.log('Componente desativado')
+    },
+    beforeUnmount() {
+      console.log('Antes de desmontar/destruir')
+    },
+    unmounted() {
+      console.log('Desmontado/destruído')
+    },
+    created() {
+      console.log('Criado', this.teste);
+    },
   }
 </script>
 

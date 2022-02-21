@@ -7,7 +7,9 @@
     <!-- renderizar de modo dinãmico os componentes home e publicar-vaga-->
     <!--<home></home>-->
     <!--<publicar-vaga></publicar-vaga>-->
-    <component :is="conteudo" />
+    <keep-alive>
+      <component :is="conteudo" />
+    </keep-alive>
   </div>
 </template>
 
@@ -30,6 +32,7 @@ import PublicarVaga from '@/components/views/PublicarVaga.vue'
         this.titulo += '*';
       }
     },
+    /*
     beforeCreate() {
       console.log('Antes de criar', this.teste);
     },
