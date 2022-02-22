@@ -28,7 +28,11 @@ export default {
         },
         descricaoVaga: {
             type: String,
-            required: true
+            //required: true,
+            //default: 'O contratante não adicionou uma descrição para esta vaga'
+            default() {
+                return '*'.repeat(20);
+            }
         },
         salario: {
             type: [Number, String],
