@@ -17,13 +17,37 @@ export default {
     //props: ['tituloVagaTeste', 'descricaoVaga', 'salario', 'modalidade', 'tipo', 'publicacao'],
     //tipagens: String, Number, Boolean, Array, Object, Date, Function, Symbol
     props: {
-        tituloVagaTeste: String,
-        descricaoVaga: String,
-        salario: [Number, String],
-        modalidade: String,
-        tipo: String,
-        publicacao: String
+        tituloVagaTeste: {
+            type: String,
+            required: true,
+            validator(p) {
+                //console.log('Prop: ', p, p.length);
+                if(p.length < 6) return false; //se estiver inválido
+                return true; //se estiver válido
+            }
+        },
+        descricaoVaga: {
+            type: String,
+            required: true
+        },
+        salario: {
+            type: [Number, String],
+            required: true
+        },
+        modalidade: {
+            type: String,
+            required: true
+        },
+        tipo: {
+            type: String,
+            required: true
+        },
+        publicacao: {
+            type: String,
+            required: true
+        }
     },
+    /*
     created () {
         console.log('tituloVagaTeste', typeof this.tituloVagaTeste);
         console.log('descricaoVaga', typeof this.descricaoVaga);
@@ -31,6 +55,6 @@ export default {
         console.log('modalidade', typeof this.modalidade);
         console.log('tipo', typeof this.tipo);
         console.log('publicacao', typeof this.publicacao);
-    }
+    }*/
 }
 </script>
