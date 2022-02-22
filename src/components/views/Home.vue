@@ -56,11 +56,11 @@
         {
           titulo: 'Analista Programador PHP Pleno',
           descricao: 'Profissional com conhecimentos em PHP, Laravel e MySQL. Necessário 3 anos de experiências. Atuará na manutenção de sistemas legados da empresa.',
-          salario: 6000,
+          salario: '6000',
           modalidade: 'Home Office',
           tipo: 'PJ',
           publicacao: '2021-10-10'
-        },
+        },/*
         {
           titulo: 'Programador JavaScript Angular',
           descricao: 'Profissional com conhecimentos avançados em JavaScript e Angular.',
@@ -92,7 +92,7 @@
           modalidade: 'Presencial',
           tipo: 'CLT',
           publicacao: '2021-10-05'
-        }
+        }*/
       ]
     }),
     methods: {
