@@ -8,15 +8,16 @@
 
     <div class="row mt-5">
       <div class="col col-4">
-        <indicador titulo="Vagas abertas" indicador="100" bg="bg-dark" color="text-white"></indicador>
+        <indicador titulo="Vagas abertas" :indicador="100" bg="bg-dark" color="text-white"></indicador>
       </div>
 
       <div class="col col-4">
-        <indicador titulo="Profissionais cadastrados" indicador="225" bg="bg-dark" color="text-white"></indicador>
+        <indicador titulo="Profissionais cadastrados" :indicador="225" bg="bg-dark" color="text-white"></indicador>
       </div>
 
       <div class="col col-4">
-        <indicador titulo="Visitantes online" indicador="25" bg="bg-light" color="text-dark"></indicador>
+        <indicador titulo="Visitantes online" :indicador="usuariosOnline" bg="bg-light" color="text-dark"></indicador>
+        <!--{{ usuariosOnline }}-->
       </div>
     </div>
   </div>
@@ -33,20 +34,17 @@
       PesquisarVaga,
       Indicador
     },
-    activated() {
-      console.log('Componente ativado')
-    },
-    deActivated() {
-      console.log('Componente desativado')
-    },
-    beforeUnmount() {
-      console.log('Antes de desmontar/destruir')
-    },
-    unmounted() {
-      console.log('Desmontado/destruído')
+    data: () => ({
+      usuariosOnline: 0
+    }),
+    methods: {
+      getUsuariosOnline() {
+        this.usuariosOnline = Math.floor(Math.random() * 101); // entra 0 e 100
+      }
     },
     created() {
-      console.log('Criado', this.teste);
+      setInterval(this.getUsuariosOnline, 1000) //declarar this.getUsuariosOnline() com o parêntese irá passar o resultado da funçao. Sem o parêntese indica que é pra executar a função.
+      // a cada 1 segundo executar a função.
     },
   }
 </script>
