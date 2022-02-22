@@ -1,8 +1,8 @@
 <template>
     <div class="card">
-        <div class="card-header bg-dark text-white">{{ tituloVagaTeste }}</div>
+        <div class="card-header bg-dark text-white">{{ titulo }}</div>
         <div class="card-body">
-            <p>{{ descricaoVaga }}</p>
+            <p>{{ descricao }}</p>
         </div>
         <div class="card-footer">
             <small class="text-muted">Salário: R$ {{ salario }} | Modalidade: {{ modalidade }} | Tipo: {{ tipo }} | Publicação: {{ publicacao }}</small>
@@ -17,7 +17,7 @@ export default {
     //props: ['tituloVagaTeste', 'descricaoVaga', 'salario', 'modalidade', 'tipo', 'publicacao'],
     //tipagens: String, Number, Boolean, Array, Object, Date, Function, Symbol
     props: {
-        tituloVagaTeste: {
+        titulo: {
             type: String,
             required: true,
             validator(p) {
@@ -26,7 +26,7 @@ export default {
                 return true; //se estiver válido
             }
         },
-        descricaoVaga: {
+        descricao: {
             type: String,
             //required: true,
             //default: 'O contratante não adicionou uma descrição para esta vaga'
