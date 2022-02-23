@@ -45,48 +45,7 @@
     },
     data: () => ({
       usuariosOnline: 0,
-      vagas: [
-        {
-          titulo: 'Analista Programador PHP Pleno',
-          descricao: 'Profissional com conhecimentos em PHP, Laravel e MySQL. Necessário 3 anos de experiências. Atuará na manutenção de sistemas legados da empresa.',
-          salario: '6000',
-          modalidade: 'Home Office',
-          tipo: 'PJ',
-          publicacao: '2021-10-10'
-        },
-        {
-          titulo: 'Programador JavaScript Angular',
-          descricao: 'Profissional com conhecimentos avançados em JavaScript e Angular.',
-          salario: 5000,
-          modalidade: 'Presencial',
-          tipo: 'CLT',
-          publicacao: '2021-10-07'
-        },
-        {
-          titulo: 'Programador JavaScript Vue',
-          descricao: 'Profissional com conhecimentos avançados em JavaScript e Vue.',
-          salario: 5000,
-          modalidade: 'Home Office',
-          tipo: 'CLT',
-          publicacao: '2021-10-06'
-        },
-        {
-          titulo: 'Analista de Banco de Dados Sênior',
-          descricao: 'Domínio dos bancos de dados SQL Server, Oracle, Postgre e MySQL',
-          salario: 9000,
-          modalidade: 'Presencial',
-          tipo: 'PJ',
-          publicacao: '2021-10-06'
-        },
-        {
-          titulo: 'Programador Web Júnior',
-          descricao: 'Conhecimentos básicos em HTML, CSS, JavaScript, Bootstrap, PHP e MySQL',
-          salario: 3000,
-          modalidade: 'Presencial',
-          tipo: 'CLT',
-          publicacao: '2021-10-05'
-        }
-      ]
+      vagas: []
     }),
     methods: {
       getUsuariosOnline() {
@@ -97,6 +56,10 @@
       setInterval(this.getUsuariosOnline, 1000) //declarar this.getUsuariosOnline() com o parêntese irá passar o resultado da funçao. Sem o parêntese indica que é pra executar a função.
       // a cada 1 segundo executar a função.
     },
+    //mounted() { //chamado uma única vez quando o componente é montado, gera um problema pois como o keep alive está ligado, quando o componente for reativado , ele não é montado novamente, logo não recarrega atualizacoes, portanto foi substituido pelo activated, que é chamado sempre q o componente for reativado
+    activated() { // método chamado sempre q um componente é ativado ou reativado
+      this.vagas = JSON.parse(localStorage.getItem('vagas'));
+    }
   }
 </script>
 
