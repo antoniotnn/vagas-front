@@ -72,6 +72,10 @@
     }),
     methods: {
       salvarVaga() {
+
+        let tempoDecorrido = Date.now(); //pegar tempo em milisegundos
+        let dataAtual = new Date(tempoDecorrido); //gerar nova data com milisegundos
+        
         
         let vagas = JSON.parse(localStorage.getItem('vagas')); //converter o String de volta pra JSON. (Objeto Literal).
         //console.log(vagas); 
@@ -83,7 +87,8 @@
           descricao: this.descricao,
           salario: this.salario,
           modalidade: this.modalidade,
-          tipo: this.tipo
+          tipo: this.tipo,
+          publicacao: dataAtual.toISOString() //pegar data atual e transformar em uma string de data, no padrão para salvamento em bancos de dados.
         });
 
         //console.log(vaga);
