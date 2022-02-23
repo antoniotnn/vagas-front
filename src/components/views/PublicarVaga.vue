@@ -72,15 +72,23 @@
     }),
     methods: {
       salvarVaga() {
-        let vaga = {
+        
+        let vagas = JSON.parse(localStorage.getItem('vagas')); //converter o String de volta pra JSON. (Objeto Literal).
+        //console.log(vagas); 
+
+        if (!vagas) vagas = [];
+
+        vagas.push({
           titulo: this.titulo,
           descricao: this.descricao,
           salario: this.salario,
           modalidade: this.modalidade,
           tipo: this.tipo
-        }
+        });
+
         //console.log(vaga);
-        localStorage.setItem('vagas', JSON.stringify(vaga)); //esse método armazena string. Então precisa-se fazer a conversão. para um JSON String.
+        localStorage.setItem('vagas', JSON.stringify(vagas)); //esse método armazena string. Então precisa-se fazer a conversão do JSON para String.
+        
       }
     }
   }
