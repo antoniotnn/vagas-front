@@ -9,7 +9,7 @@
     <div class="row mt-3">
       <div class="col">
         <label class="form-label">Título da Vaga</label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" v-model="titulo">
         <div class="form-text">Por exemplo: Programador JavaScript e VueJS</div>
       </div>
     </div>
@@ -17,7 +17,7 @@
     <div class="row mt-3">
       <div class="col">
         <label class="form-label">Descrição</label>
-        <textarea type="text" class="form-control"></textarea>
+        <textarea type="text" class="form-control" v-model="descricao"></textarea>
         <div class="form-text">Informe os detalhes da vaga.</div>
       </div>
     </div>
@@ -25,13 +25,14 @@
     <div class="row mt-3">
       <div class="col">
         <label class="form-label">Salário</label>
-        <input type="number" class="form-control">
+        <input type="number" class="form-control" v-model="salario">
         <div class="form-text">Informe o salário.</div>
       </div>
 
       <div class="col">
         <label class="form-label">Modalidade</label>
-        <select class="form-select">
+        <select class="form-select" v-model="modalidade">
+          <option value="" disabled>--Selecione</option>
           <option value="1">Home Office</option>
           <option value="2">Presencial</option>
         </select>
@@ -40,7 +41,8 @@
 
       <div class="col">
         <label class="form-label">Tipo</label>
-        <select class="form-select">
+        <select class="form-select" v-model="tipo">
+          <option value="" disabled>--Selecione</option>
           <option value="1">CLT</option>
           <option value="2">PJ</option>
         </select>
@@ -49,8 +51,9 @@
     </div>
 
     <div class="row mt-3">
+      {{ titulo }} | {{ descricao }} | {{ salario }} | {{ modalidade }} | {{ tipo }} | 
       <div class="col">
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <button type="submit" class="btn btn-primary" @click="salvarVaga()">Cadastrar</button>
       </div>
     </div>
     
@@ -59,7 +62,27 @@
 
 <script>
   export default {
-    name: 'PublicarVaga'
+    name: 'PublicarVaga',
+    data: () => ({
+      titulo: '',
+      descricao: '',
+      salario: '',
+      modalidade: '',
+      tipo: ''
+    }),
+    methods: {
+      salvarVaga() {
+        let vaga = {
+          titulo: this.titulo,
+          descricao: this.descricao,
+          salario: this.salario,
+          modalidade: this.modalidade,
+          tipo: this.tipo
+        }
+        //console.log(vaga);
+        localStorage.setItem('vagas', JSON.stringify(vaga)); //esse método armazena string. Então precisa-se fazer a conversão. para um JSON String.
+      }
+    }
   }
 </script>
 
