@@ -19,7 +19,12 @@
 
 <script>
 export default {
-   name: 'VagasFavoritas'
+   name: 'VagasFavoritas',
+   mounted() {
+       this.emitter.on('eventoGlobal1', (p) => {
+           console.log('Componente Vagas Favoritas', p);
+       }); // capturando evento. Usa os 2 parametros (nome evento, funcao callback que trata o parametro emitido pelo emissor)
+   }
 }
 </script>
 
