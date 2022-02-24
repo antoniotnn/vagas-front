@@ -9,11 +9,13 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <!--<a class="nav-link" href="#" @click="navegarPara()">Home</a>-->
-            <a class="nav-link" href="#" @click="funcaoCallback('Teste 1', 200)">Home</a>
+            <!--<a class="nav-link" href="#" @click="funcaoCallback('Teste 1', 200)">Home</a>-->
+            <a class="nav-link" href="#" @click="navegarPara('Home')">Home</a>
           </li>
           <li class="nav-item">
             <!--<a class="nav-link" href="#" @click="navegarPara()">Publicar Vaga</a>-->
-            <a class="nav-link" href="#" @click="funcaoCallback('Teste 2', 300)">Publicar Vaga</a>
+            <!--<a class="nav-link" href="#" @click="funcaoCallback('Teste 2', 300)">Publicar Vaga</a>-->
+            <a class="nav-link" href="#" @click="navegarPara('PublicarVaga')">Publicar Vaga</a>
           </li>
         </ul>
       </div>
@@ -23,10 +25,19 @@
 
 <script>
   export default {
+    name: 'TopoPadrao',
+    methods: {
+      navegarPara(p) {
+        this.$emit('navegar', p)
+      }
+    }
+
+
+    /*
     props: {
       funcaoCallback: Function // Definindo a prop funcaoCallback, tipada como Function
     },
-    name: 'TopoPadrao'
+    */
     
     /*methods: {
       navegarPara() {
