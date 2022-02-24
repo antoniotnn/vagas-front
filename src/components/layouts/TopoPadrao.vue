@@ -8,10 +8,12 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#" @click="navegarPara()">Home</a>
+            <!--<a class="nav-link" href="#" @click="navegarPara()">Home</a>-->
+            <a class="nav-link" href="#" @click="funcaoCallback('Teste 1', 200)">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" @click="navegarPara()">Publicar Vaga</a>
+            <!--<a class="nav-link" href="#" @click="navegarPara()">Publicar Vaga</a>-->
+            <a class="nav-link" href="#" @click="funcaoCallback('Teste 2', 300)">Publicar Vaga</a>
           </li>
         </ul>
       </div>
@@ -21,8 +23,12 @@
 
 <script>
   export default {
-    name: 'TopoPadrao',
-    methods: {
+    props: {
+      funcaoCallback: Function // Definindo a prop funcaoCallback, tipada como Function
+    },
+    name: 'TopoPadrao'
+    
+    /*methods: {
       navegarPara() {
         //console.log('Chegamos até aqui');
 
@@ -33,7 +39,7 @@
           'nomeDoEventoQueSeraCapturadoNoComponentePai',
           { msg: 'Dando um oi para o componente PAI' }
         ); 
-        */
+        
         this.$emit(//emite um evento pro componente pai desse, ou seja quem está fazendo a instância dele.
           'nomeDoEventoQueSeraCapturadoNoComponentePai',
           (p1, p2) => { 
@@ -43,7 +49,7 @@
           }
         );
       }
-    }
+    }*/
   }
 </script>
 
