@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Componente App</h1>
-    <topo-padrao @nomeDoEventoQueSeraCapturadoNoComponentePai="acao($event)"/>
+    <topo-padrao @nomeDoEventoQueSeraCapturadoNoComponentePai="$event('Texto 1', 125)"/> <!-- acao($event) caso  opcao seja executar um método daqui do component pai. Recebendo o $event que vem do filho. Caso o $event seja uma funcao de callback a sintaxe muda para $event() , onde indica que é pra executar uma funcao de callback vinda do filho-->
     <button @click="desmontarComponente()">Desmontar o componente Conteúdo</button>
     <conteudo v-if="visibilidade"></conteudo>
   </div>

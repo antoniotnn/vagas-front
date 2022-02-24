@@ -28,11 +28,20 @@
 
         //this.$emit('nomeDoEventoQueSeraCapturadoNoComponentePai'); //emite um evento pro componente pai desse, ou seja quem está fazendo a instância dele.
         // aceita um segundo parametro; um payload, uma funcao de callback, string, array.. etc..
-
+        /*
         this.$emit(//emite um evento pro componente pai desse, ou seja quem está fazendo a instância dele.
           'nomeDoEventoQueSeraCapturadoNoComponentePai',
           { msg: 'Dando um oi para o componente PAI' }
         ); 
+        */
+        this.$emit(//emite um evento pro componente pai desse, ou seja quem está fazendo a instância dele.
+          'nomeDoEventoQueSeraCapturadoNoComponentePai',
+          (p1, p2) => { 
+            console.log('Função de callback emitida pelo componente fiho'); 
+            console.log('p1: ', p1);
+            console.log('p2: ', p2);
+          }
+        );
       }
     }
   }
