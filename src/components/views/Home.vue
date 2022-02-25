@@ -6,12 +6,7 @@
       </div>
     </div>
 
-    <div class="row mt-5" v-for="(vaga, index) in vagas" :key="index">
-      <div class="col">
-        <!--{{vaga}}-->
-        <vaga v-bind="vaga"/>
-      </div>
-    </div>
+    <lista-vagas :vagas="vagas" />
 
     <div class="row mt-5">
       <div class="col col-4">
@@ -34,14 +29,14 @@
 
   import PesquisarVaga from '@/components/comuns/PesquisarVaga.vue';
   import Indicador from '@/components/comuns/Indicador.vue';
-  import Vaga from '@/components/comuns/Vaga.vue';
+  import ListaVagas from '@/components/comuns/ListaVagas.vue';
 
   export default {
     name: 'Home',
     components: {
       PesquisarVaga,
       Indicador,
-      Vaga
+      ListaVagas
     },
     data: () => ({
       usuariosOnline: 0,
