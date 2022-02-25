@@ -2,15 +2,14 @@
   <div>
     <vagas-favoritas></vagas-favoritas>
     <topo-padrao @navegar="componente = $event" /> <!-- capturando evento navegar emitido pelo componente topo padrao, e recuperando o evento emitido atraves do $event (no caso o segundo parâmetro que o topo padrao emite, que é uma string com 'Home', ou 'PublicarVaga' por exemplo e atribuindo para a propriedade componente definido aqui no data deste componente Pai, App) -->
+    
     <alerta v-if="exibirAlerta">
       <template v-slot:titulo>
         <h5>Título do alerta</h5>
       </template>
-
-      <template v-slot:descricao>
-        <p>Descrição do alerta</p>
-      </template>
+      <p>Descrição do alerta</p>
     </alerta>
+    
     <conteudo v-if="visibilidade" :conteudo="componente"></conteudo>
   </div>
 </template>
