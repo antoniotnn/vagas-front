@@ -90,12 +90,19 @@
           publicacao: dataAtual.toISOString() //pegar data atual e transformar em uma string de data, no padrão para salvamento em bancos de dados.
         });
 
-        //console.log(vaga);
-        localStorage.setItem('vagas', JSON.stringify(vagas)); //esse método armazena string. Então precisa-se fazer a conversão do JSON para String.
-        this.emitter.emit('alerta', {
-          titulo: `A vaga ${this.titulo} foi cadastrada com sucesso!`,
-          descricao: 'Parabéns, a vaga foi cadastrada e poderá ser consultada por milhares de profissionais'
-        });
+        if (this.validaformulario()) {
+          //console.log(vaga);
+          localStorage.setItem('vagas', JSON.stringify(vagas)); //esse método armazena string. Então precisa-se fazer a conversão do JSON para String.
+          this.emitter.emit('alerta', {
+            titulo: `A vaga ${this.titulo} foi cadastrada com sucesso!`,
+            descricao: 'Parabéns, a vaga foi cadastrada e poderá ser consultada por milhares de profissionais'
+          });
+        } else {
+          this.emitter.emit('alerta', {
+            titulo: '-_- Opssss... Não foi possível realizar o cadastro!',
+            descricao: 'Parece que você esqueceu de preencher alguma informação. Faça o ajuste e tente novamente. Obrigado!'
+          });
+        }
         
         this.resetaFormularioCadastroVaga();
       },
@@ -105,6 +112,17 @@
         this.salario = '',
         this.modalidade = '',
         this.tipo = ''
+      },
+      validaformulario() {
+        let valido = true;
+
+        if(this.titulo === '') valido = false;
+        if(this.descricao === '') valido = false;
+        if(this.salario === '') valido = false;
+        if(this.modalidade === '') valido = false;
+        if(this.tipo === '') valido = false;
+
+        return valido;
       }
     }
   }
