@@ -5,9 +5,9 @@
     
     <alerta v-if="exibirAlerta">
       <template v-slot:titulo>
-        <h5>Título do alerta</h5>
+        <h5>{{ alerta.titulo }}</h5>
       </template>
-      <p>Descrição do alerta</p>
+      <p>{{ alerta.descricao }}</p>
     </alerta>
     
     <conteudo v-if="visibilidade" :conteudo="componente"></conteudo>
@@ -25,7 +25,8 @@ export default {
   data: () => ({
     visibilidade: true,
     componente: 'Home',
-    exibirAlerta: false
+    exibirAlerta: false,
+    alerta: { titulo: '', descricao: '' }
   }),
   components: {
     Conteudo,
@@ -34,7 +35,8 @@ export default {
     Alerta
   },
   mounted() {
-    this.emitter.on('alerta', () => {
+    this.emitter.on('alerta', (a) => {
+      this.alerta = a;
       this.exibirAlerta = true;
 
       setTimeout(() => this.exibirAlerta = false, 4000);

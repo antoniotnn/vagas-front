@@ -91,8 +91,11 @@
         });
 
         //console.log(vaga);
-        //localStorage.setItem('vagas', JSON.stringify(vagas)); //esse método armazena string. Então precisa-se fazer a conversão do JSON para String.
-        this.emitter.emit('alerta');
+        localStorage.setItem('vagas', JSON.stringify(vagas)); //esse método armazena string. Então precisa-se fazer a conversão do JSON para String.
+        this.emitter.emit('alerta', {
+          titulo: `A vaga ${this.titulo} foi cadastrada com sucesso!`,
+          descricao: 'Parabéns, a vaga foi cadastrada e poderá ser consultada por milhares de profissionais'
+        });
         
         this.resetaFormularioCadastroVaga();
       },
