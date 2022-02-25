@@ -3,7 +3,7 @@
     <vagas-favoritas></vagas-favoritas>
     <topo-padrao @navegar="componente = $event" /> <!-- capturando evento navegar emitido pelo componente topo padrao, e recuperando o evento emitido atraves do $event (no caso o segundo parâmetro que o topo padrao emite, que é uma string com 'Home', ou 'PublicarVaga' por exemplo e atribuindo para a propriedade componente definido aqui no data deste componente Pai, App) -->
     
-    <alerta v-if="exibirAlerta">
+    <alerta v-if="exibirAlerta" :tipo="alerta.tipo">
       <template v-slot:titulo>
         <h5>{{ alerta.titulo }}</h5>
       </template>
@@ -26,7 +26,7 @@ export default {
     visibilidade: true,
     componente: 'Home',
     exibirAlerta: false,
-    alerta: { titulo: '', descricao: '' }
+    alerta: { titulo: '', descricao: '', tipo: '' }
   }),
   components: {
     Conteudo,
@@ -37,6 +37,7 @@ export default {
   mounted() {
     this.emitter.on('alerta', (a) => {
       this.alerta = a;
+      //console.log(this.alerta);
       this.exibirAlerta = true;
 
       setTimeout(() => this.exibirAlerta = false, 4000);
