@@ -93,6 +93,14 @@
         //console.log(vaga);
         localStorage.setItem('vagas', JSON.stringify(vagas)); //esse método armazena string. Então precisa-se fazer a conversão do JSON para String.
         
+        this.resetaFormularioCadastroVaga();
+      },
+      resetaFormularioCadastroVaga() {
+        this.titulo = '',
+        this.descricao = '',
+        this.salario = '',
+        this.modalidade = '',
+        this.tipo = ''
       }
     }
   }
