@@ -91,7 +91,8 @@
         });
 
         //console.log(vaga);
-        localStorage.setItem('vagas', JSON.stringify(vagas)); //esse método armazena string. Então precisa-se fazer a conversão do JSON para String.
+        //localStorage.setItem('vagas', JSON.stringify(vagas)); //esse método armazena string. Então precisa-se fazer a conversão do JSON para String.
+        this.emitter.emit('alerta');
         
         this.resetaFormularioCadastroVaga();
       },
