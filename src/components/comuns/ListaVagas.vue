@@ -1,13 +1,31 @@
 <template>
-    <slot :vagas="vagas">
-        <div>
-            <div class="row mt-5" v-for="(vaga, index) in vagas" :key="index">
-                <div class="col">
-                    <vaga v-bind="vaga"/>
+
+    <div>
+
+        <!--
+        <slot name="titulo" :dadosTitulo="{ titulo: 'Título Lista', nroVagas: 15 }">
+            <p>Título da lista de vagas</p>
+        </slot>
+        -->
+
+        <slot :vagas="vagas">
+            <div>
+                <div class="row mt-5" v-for="(vaga, index) in vagas" :key="index">
+                    <div class="col">
+                        <vaga v-bind="vaga"/>
+                    </div>
                 </div>
             </div>
-        </div>
-    </slot>
+        </slot>
+
+        <!--
+        <slot name="rodape" :dadosRodape="{ titulo: 'Rodapé Lista', paginacao: { nroPaginas: 10, paginaAtual: 5 } }">
+            <p>O Rodapé da lista de vagas</p>
+        </slot>
+        -->
+
+    </div>
+
 </template>
 
 <script>
