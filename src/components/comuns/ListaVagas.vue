@@ -1,11 +1,13 @@
 <template>
-    <div>
-        <div class="row mt-5" v-for="(vaga, index) in vagas" :key="index">
-            <div class="col">
-                <vaga v-bind="vaga"/>
+    <slot :vagas="vagas">
+        <div>
+            <div class="row mt-5" v-for="(vaga, index) in vagas" :key="index">
+                <div class="col">
+                    <vaga v-bind="vaga"/>
+                </div>
             </div>
         </div>
-    </div>
+    </slot>
 </template>
 
 <script>

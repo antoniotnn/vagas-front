@@ -6,7 +6,26 @@
       </div>
     </div>
 
-    <lista-vagas />
+    <!--
+    <lista-vagas v-slot:default="slotProps">
+      {{slotProps }}
+      <p>Conteúdo padrão substituído no Slot</p>
+    </lista-vagas>
+    -->
+
+    <h2>Template Customizado</h2>
+
+    <lista-vagas v-slot:default="slotProps">
+      <div v-for="(vaga, index) in slotProps.vagas" :key="index">
+        <h4>{{vaga.titulo}}</h4>
+        <p>{{vaga.descricao}}</p>
+        <hr>
+      </div>
+    </lista-vagas>
+
+    <br><br>
+    <h2>Template Padrão</h2>
+    <lista-vagas></lista-vagas>
 
     <div class="row mt-5">
       <div class="col col-4">
